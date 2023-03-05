@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+.styled-checkbox {
+  appearance: none;
+  margin-right: 0.8em;
+  min-width: 1em;
+  min-height: 1em;
+  border-radius: 10%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #4c566a;
+}
+
+.dark .styled-checkbox {
+  background-color: #e5e9f0;
+}
+
+.styled-checkbox::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  transform: scale(0);
+  transition: 150ms transform ease-in-out;
+  box-shadow: inset 1em 1em #fff;
+}
+
+.dark .styled-checkbox::before {
+  box-shadow: inset 1em 1em #4c566a;
+}
+
+.styled-checkbox:checked::before {
+  transform: scale(1);
+}
