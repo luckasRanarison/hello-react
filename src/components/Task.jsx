@@ -36,6 +36,7 @@ const Task = ({ id, content, completed }) => {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => {
           if (e.key == "Enter") {
+            if (!input) return;
             renameTask(id, input);
             setEditTask(null);
             setOpenListPopup(null);

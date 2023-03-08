@@ -37,7 +37,12 @@ const ContextProvider = ({ children }) => {
   };
 
   const deleteTask = (id) => {
-    setTaskList((prev) => prev.filter((task) => task.id != id));
+    setTaskList((prev) => {
+      const filteredArray = prev.filter((item) => item.id !== id);
+      const updatedArray = filteredArray.map((item, id) => ({ ...item, id }));
+      return updatedArray;
+    });
+    setOpenListPopup(null);
   };
 
   const contextValue = {
